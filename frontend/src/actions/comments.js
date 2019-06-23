@@ -1,8 +1,8 @@
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 
-export function receivePosts (posts) {
+export function receiveComments (comments) {
     return {
-        type: RECEIVE_POSTS,
-        posts
+        type: RECEIVE_COMMENTS,
+        comments
     }
 }

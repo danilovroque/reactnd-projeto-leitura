@@ -6,8 +6,6 @@ if (!token) {
     token = localStorage.token = Math.random().toString(24).substr(-12)
 }
 
-console.log('token: ', token)
-
 const headers = {
     Authorization: token
 }

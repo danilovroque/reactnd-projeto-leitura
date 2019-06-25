@@ -3,11 +3,12 @@ const api = 'http://localhost:3001'
 let { token } = localStorage
 
 if (!token) {
-    token = token.localStorage = Math.random().toString(24).substr(-12)
+    token = localStorage.token = Math.random().toString(24).substr(-12)
 }
 
+console.log('token: ', token)
+
 const headers = {
-    Accept: 'application/json',
     Authorization: token
 }
 
@@ -80,7 +81,7 @@ export const updateComment = (comment) => fetch(`${api}/comments/${comment.id}`,
         ...headers,
         'Content-type': 'application/json'
     },
-    body: JSON.stringify(post)
+    body: JSON.stringify(comment)
 }).then((res) => res.json())
 
 export const deleteComment = (commentId) => fetch(`${api}/comments/${commentId}`, {

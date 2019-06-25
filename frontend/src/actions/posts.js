@@ -28,12 +28,12 @@ function receivePostAction (post) {
 
 export function handleReceivePosts (category) {
     return (dispatch) => {
-        category 
+        (category === undefined || category === ''
             ? getPosts()
             : getPostsByCategory(category)
-            .then((posts) => {
-                dispatch(receivePostsAction(posts))
-            })
+        ).then((posts) => {
+            dispatch(receivePostsAction(posts))
+        })
     }
 }
 

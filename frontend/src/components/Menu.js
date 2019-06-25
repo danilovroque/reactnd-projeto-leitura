@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Menu, Dropdown } from 'semantic-ui-react'
+import { Image, Menu, Dropdown } from 'semantic-ui-react'
 import logo from '../logo.svg';
 
 export default () => (

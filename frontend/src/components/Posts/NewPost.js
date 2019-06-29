@@ -84,7 +84,7 @@ class NewPost extends Component {
                                 value={author}
                                 label='Autor'
                                 placeholder='Seu nome'
-                                width={3}
+                                width={4}
                                 onChange={this.handleFormChange}
                             />
                             <Form.Input 

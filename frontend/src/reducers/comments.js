@@ -16,7 +16,7 @@ export default function comments (state = {}, action) {
         }
         case UPDATE_COMMENT: {
             return [
-                ...state,
+                ...state.filter((c) => c.id !== action.comment.id),
                 action.comment
             ]
         }

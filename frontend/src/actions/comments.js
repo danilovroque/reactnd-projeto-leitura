@@ -115,6 +115,6 @@ export const VOTE = { UP: 'upVote', DOWN: 'downVote' }
 export function handleVoteComment (commentId, option) {
     return (dispatch) => {
         voteComment(commentId, option)
-            .then((c) => updateCommentAction(c))
+            .then((c) => dispatch(updateCommentAction(c)))
     }
 }

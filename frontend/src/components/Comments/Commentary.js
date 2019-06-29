@@ -3,9 +3,10 @@ import {
     Comment, Button, Icon
 } from 'semantic-ui-react'
 import { formatDate } from '../../utils/helpers'
+import { VOTE } from '../../actions/comments'
 
 function Commentary(props) {
-    const { comment } = props
+    const { comment, handleVote } = props
     const {
         author, body, timestamp, voteScore
     } = comment
@@ -26,10 +27,10 @@ function Commentary(props) {
                     {body}
                 </Comment.Text>
                 <Comment.Actions className='commentsActionsContainer'>
-                    <Button className='buttonAction' size='mini' basic>
+                    <Button className='buttonAction' size='mini' onClick={() => handleVote(VOTE.UP, comment.id)} basic>
                         <Icon name='thumbs up outline' color='green' />
                     </Button>
-                    <Button className='buttonAction' size='mini' basic>
+                    <Button className='buttonAction' size='mini' onClick={() => handleVote(VOTE.DOWN, comment.id)} basic>
                         <Icon name='thumbs down outline' color='red' />
                     </Button>
                     <Button className='buttonAction' size='mini' basic>

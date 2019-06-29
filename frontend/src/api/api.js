@@ -93,5 +93,5 @@ export const voteComment = (commentId, option) => fetch(`${api}/comments/${comme
         ...headers,
         'Content-type': 'application/json'
     },
-    body: JSON.stringify(option)
+    body: JSON.stringify({ option })
 }).then((res) => res.json())

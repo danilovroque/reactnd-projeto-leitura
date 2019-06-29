@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 import { handleVotePost } from '../../actions/posts'
 import PostVote from './PostVote'
@@ -24,4 +25,4 @@ class Post extends Component {
     }
 }
 
-export default Post
+export default connect()(Post)

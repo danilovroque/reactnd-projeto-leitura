@@ -1,25 +1,33 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux'
-import { Container, Button } from 'semantic-ui-react'
-import Menu from './Menu'
-import { handleReceivePosts } from '../actions/posts'
+import { Container } from 'semantic-ui-react'
 import { handleReceiveCategories } from '../actions/categories'
+import { handleReceivePosts } from '../actions/posts'
+import MenuNav from './MenuNav'
+import PostDetail from './Posts/PostDetail'
 
 class App extends Component {
   componentDidMount () {
-    this.props.dispatch(handleReceivePosts())
     this.props.dispatch(handleReceiveCategories())
+    this.props.dispatch(handleReceivePosts())
   }
 
   render() {
+    console.log('props: ', this.props)
     return (
       <div>
         <Fragment>
-          <Menu />
+          {
+            this.props.loading === true
+            ? null
+            : <MenuNav />
+          }
           <Container>
-            <Button>
-              Teste
-            </Button>
+            {
+              this.props.loadingPosts === true
+              ? null
+              : <PostDetail id="hpiw0fgt3wjjxgo2i2l" />
+            }
           </Container>
         </Fragment>
       </div>
@@ -27,4 +35,15 @@ class App extends Component {
   }  
 }
 
-export default connect()(App)
+function isEmpty (obj) {
+  return !obj || obj.length === 0 || obj.length === undefined
+}
+
+function mapStateToProps({ categories, posts }){
+  return {
+    loading: isEmpty(categories),  
+    loadingPosts: isEmpty(posts)
+  }
+}
+
+export default connect(mapStateToProps)(App)

@@ -6,6 +6,7 @@ import reducer from './reducers'
 import App from './components/App'
 import middleware from './middleware'
 import 'semantic-ui/dist/semantic.min.css'
+import './index.css'
 
 const store = createStore(reducer, middleware)
 

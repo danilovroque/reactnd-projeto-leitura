@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.postDetail {
+  padding-top: .25em;
+  display: block;
+  font-size: 12px;
+  color: gray;
+}
+
+.postDetail > .author {
+  font-weight: bold;
+}
+
+.postBody {
+  padding-top: 1.0em;
+  padding-bottom: .5em;
+}
+
+.postActionsContainer {
+  display: block;
+  padding-top: 1em;
+}
+
+.commentsActionsContainer {
+  display: block;
+  padding-top: 0.1em;
+}
+
+.postActionsContainer .buttonAction {
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.commentsActionsContainer .buttonAction {
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.postActionsContainer .buttonAction:not(:first-of-type) {
+  margin-left: 1.25em !important;
+}

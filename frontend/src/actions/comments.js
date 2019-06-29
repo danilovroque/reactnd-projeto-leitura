@@ -105,7 +105,7 @@ export function handleDeleteComment (commentId) {
     return (dispatch) => {
         deleteComment(commentId)
             .then((c) => {
-                dispatch(c)
+                dispatch(deleteCommentAction(c))
             })
     }
 }

@@ -85,12 +85,14 @@ function updatePostAction (post) {
 
 export function handleUpdatePost (post) {
     const {
-        title, body
+        id, title, body, category
     } = post
     return (dispatch) => {
         updatePost({
+            id,
             title,
-            body
+            body,
+            category
         })
         .then((p) => {
             dispatch(updatePostAction(p))
@@ -118,6 +120,7 @@ export function handleDeletePost (postId) {
 export const VOTE = { UP: 'upVote', DOWN: 'downVote' }
 
 export function handleVotePost (postId, option) {
+    console.log('json: ', JSON.stringify(option))
     return (dispatch) => {
         votePost(postId, option).then((p) => {
             dispatch(updatePostAction(p))

@@ -16,7 +16,7 @@ export default function posts (state = {}, action) {
         }
         case UPDATE_POST: {
             return [
-                ...state,
+                ...state.filter(p => p.id !== action.post.id),
                 action.post
             ]
         }

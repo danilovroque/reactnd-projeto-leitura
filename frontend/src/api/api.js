@@ -54,7 +54,7 @@ export const votePost = (postId, option) => fetch(`${api}/posts/${postId}`, {
         ...headers,
         'Content-type': 'application/json'
     },
-    body: JSON.stringify(option)
+    body: JSON.stringify({ option })
 }).then((res) => res.json())
 
 //Comments

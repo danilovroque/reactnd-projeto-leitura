@@ -18,7 +18,7 @@ class PostDetail extends Component {
             <Card fluid>
                 <Post post={post} showBody={showBody} />
 
-                <CommentsList />
+                <CommentsList id={post.id} />
             </Card>
         )
     }

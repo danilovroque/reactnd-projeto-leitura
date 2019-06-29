@@ -5,6 +5,7 @@ import { handleReceiveCategories } from '../actions/categories'
 import { handleReceivePosts } from '../actions/posts'
 import MenuNav from './MenuNav'
 import PostDetail from './Posts/PostDetail'
+import { isEmpty } from '../utils/helpers'
 
 class App extends Component {
   componentDidMount () {
@@ -26,7 +27,7 @@ class App extends Component {
             {
               this.props.loadingPosts === true
               ? null
-              : <PostDetail id="hpiw0fgt3wjjxgo2i2l" />
+              : <PostDetail id="8xf0y6ziyjabvozdd253nd" />
             }
           </Container>
         </Fragment>
@@ -35,9 +36,7 @@ class App extends Component {
   }  
 }
 
-function isEmpty (obj) {
-  return !obj || obj.length === 0 || obj.length === undefined
-}
+
 
 function mapStateToProps({ categories, posts }){
   return {

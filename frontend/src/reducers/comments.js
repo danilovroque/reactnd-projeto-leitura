@@ -31,9 +31,7 @@ export default function comments (state = {}, action) {
             ]
         }
         case RECEIVE_COMMENTS: {
-            return [
-                action.comments
-            ]
+            return action.comments
         }
         default:
             return state

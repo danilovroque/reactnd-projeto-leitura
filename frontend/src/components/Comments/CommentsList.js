@@ -1,34 +1,51 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
-    Comment, Header, Button
+    Comment, Header
 } from 'semantic-ui-react'
+import { handleGetComments } from '../../actions/comments'
+import Commentary from './Commentary'
+import { isEmpty } from '../../utils/helpers'
 
 class CommentsList extends Component {
+
+    componentDidMount() {
+        const { dispatch, id } = this.props
+
+        dispatch(handleGetComments(id))
+    }
+
     render () {
+        const { comments } = this.props
+        console.log('comments props: ', this.props)
         return (
             <Comment.Group>
                 <Header as='h5' style={{paddingLeft: '2.5em'}}>
                     Comentários
                 </Header>
 
-                <Comment>
-                    <Comment.Avatar></Comment.Avatar>
-                    <Comment.Content>
-                        <Comment.Author as='span'>Danilo V Roque</Comment.Author>
-                        <Comment.Metadata>
-                            Todat at 5:42
-                        </Comment.Metadata>
-                        <Comment.Text>
-                            Discordo
-                        </Comment.Text>
-                        <Comment.Actions className='commentsActionsContainer'>
-                            <Button className='buttonAction' size='mini' basic>reply</Button>
-                        </Comment.Actions>
-                    </Comment.Content>
-                </Comment>
+                {
+                    this.props.loading === true 
+                    ? null
+                    : comments.map((c) => (
+                        <Commentary key={c.id} comment={c} />
+                    ))
+                }
+
             </Comment.Group>
         )
     }
 }
 
-export default CommentsList
+function mapStateToProps({ comments }, { id }) {
+    if (!isEmpty(comments)){
+        comments = comments.filter((c) => c.deleted === false && c.parentDeleted === false)
+    }
+    return {
+        comments,
+        id,
+        loading: isEmpty(comments)
+    }
+}
+
+export default connect(mapStateToProps)(CommentsList)

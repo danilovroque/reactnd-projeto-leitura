@@ -80,9 +80,10 @@ function updateCommentAction (comment) {
 }
 
 export function handleUpdateComment (comment) {
-    const { body } = comment
+    const { id, body } = comment
     return (dispatch) => {
         updateComment({
+            id,
             timestamp: new Date().getTime(),
             body
         })
@@ -105,7 +106,7 @@ export function handleDeleteComment (commentId) {
     return (dispatch) => {
         deleteComment(commentId)
             .then((c) => {
-                dispatch(deleteCommentAction(c))
+                dispatch(deleteCommentAction(c.id))
             })
     }
 }

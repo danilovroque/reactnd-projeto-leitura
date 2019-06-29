@@ -64,7 +64,6 @@ class CommentsList extends Component {
     render () {
         const { comments } = this.props
         const { author, body, success } = this.state
-        console.log('comments props: ', this.props)
         return (
             <Comment.Group>
                 <Header as='h5' style={{paddingLeft: '2.5em'}}>

@@ -4,6 +4,8 @@ import {
 } from 'semantic-ui-react'
 import { formatDate } from '../../utils/helpers'
 import { VOTE } from '../../actions/comments'
+import CommentDeleteModal from './CommentDeleteModal'
+import CommentEditModal from './CommentEditModal';
 
 function Commentary(props) {
     const { comment, handleVote } = props
@@ -33,12 +35,15 @@ function Commentary(props) {
                     <Button className='buttonAction' size='mini' onClick={() => handleVote(VOTE.DOWN, comment.id)} basic>
                         <Icon name='thumbs down outline' color='red' />
                     </Button>
-                    <Button className='buttonAction' size='mini' basic>
-                        editar
-                    </Button>
-                    <Button className='buttonAction' size='mini' basic>
-                        apagar
-                    </Button>
+                    
+                    <CommentEditModal
+                        comment={comment}
+                     />
+
+                    <CommentDeleteModal 
+                        commentId={comment.id}
+                    />
+                    
                 </Comment.Actions>
             </Comment.Content>
         </Comment>

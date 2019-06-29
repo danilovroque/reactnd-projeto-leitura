@@ -15,7 +15,7 @@ class PostDetail extends Component {
         }
 
         return (
-            <Card fluid>
+            <Card style={{ marginBottom: '2.5em' }} fluid>
                 <Post post={post} showBody={showBody} />
 
                 <CommentsList id={post.id} />

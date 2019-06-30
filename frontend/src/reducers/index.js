@@ -4,6 +4,7 @@ import categories from './categories'
 import comments from './comments'
 
 export default combineReducers({
+    preferences,
     posts,
     categories,
     comments

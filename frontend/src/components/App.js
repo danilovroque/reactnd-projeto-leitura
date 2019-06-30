@@ -4,8 +4,8 @@ import { Container } from 'semantic-ui-react'
 import { handleReceiveCategories } from '../actions/categories'
 import { handleReceivePosts } from '../actions/posts'
 import MenuNav from './MenuNav'
-import PostDetail from './Posts/PostDetail'
 import { isEmpty } from '../utils/helpers'
+import Dashboard from './Dashboard';
 
 class App extends Component {
   componentDidMount () {
@@ -14,7 +14,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('props: ', this.props)
     return (
       <div>
         <Fragment>
@@ -27,7 +26,7 @@ class App extends Component {
             {
               this.props.loadingPosts === true
               ? null
-              : <PostDetail id="8xf0y6ziyjabvozdd253nd" />
+              : <Dashboard />
             }
           </Container>
         </Fragment>

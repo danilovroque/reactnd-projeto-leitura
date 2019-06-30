@@ -18,17 +18,20 @@ class PostDetail extends Component {
             <Card style={{ marginBottom: '2.5em' }} fluid>
                 <Post post={post} showBody={showBody} />
 
-                <CommentsList id={post.id} />
+                {
+                    showBody === true
+                    && <CommentsList id={post.id} />
+                }
             </Card>
         )
     }
 }
 
-function mapStateToProps ({ posts }, { id }) {
+function mapStateToProps ({ posts }, { id, showBody }) {
     const post = posts.filter((p) => p.id === id)[0]
     return {
         post,
-        showBody: true
+        showBody
     }
 }
 

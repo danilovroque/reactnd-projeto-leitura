@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom'
 import { Image, Menu, Dropdown, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import logo from '../logo.svg';
@@ -6,7 +7,8 @@ import NewPost from './Posts/NewPost'
 
 class MenuNav extends Component {
     render () {
-        const { categories } = this.props
+        console.log('props: ', this.props)
+        const { categories, location: { pathname } } = this.props
         return (
             <Menu inverted>
                 <Menu.Item as='a' header>
@@ -23,7 +25,13 @@ class MenuNav extends Component {
                             <Dropdown.Menu>
                                 { 
                                     categories.map((c) => (
-                                        <Dropdown.Item key={c.name} text={c.name} />
+                                        <Dropdown.Item 
+                                            key={c.name} 
+                                            text={c.name} 
+                                            as={Link}
+                                            to={`/${c.path}`}
+                                            active={pathname.includes(c.path)}
+                                        />
                                     ))
                                 }
                             </Dropdown.Menu>
@@ -57,10 +65,12 @@ class MenuNav extends Component {
     }
 }
 
-function mapStateToProps ({ categories }) {
+function mapStateToProps ({ categories }, props) {
+    console.log('map props: ', props)
     return {
-        categories
+        categories,
+        ...props
     }
 }
 
-export default connect(mapStateToProps)(MenuNav)
+export default withRouter(connect(mapStateToProps)(MenuNav))

@@ -17,7 +17,6 @@ class PostDetail extends Component {
         return (
             <Card style={{ marginBottom: '2.5em' }} fluid>
                 <Post post={post} showBody={showBody} />
-
                 {
                     showBody === true
                     && <CommentsList id={post.id} />

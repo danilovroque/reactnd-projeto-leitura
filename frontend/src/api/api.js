@@ -22,7 +22,7 @@ export const getPost = (postId) => fetch(`${api}/posts/${postId}`, { headers })
 export const getPosts = () => fetch(`${api}/posts`, { headers })
     .then((res) => res.json())
 
-export const getPostsByCategory = (category) => fetch(`${api}/${category}/posts`)
+export const getPostsByCategory = (category) => fetch(`${api}/${category}/posts`, { headers })
     .then((res) => res.json())
 
 export const createPost = (post) => fetch(`${api}/posts`, {

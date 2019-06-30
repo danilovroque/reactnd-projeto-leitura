@@ -1,21 +1,21 @@
 import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import { handleReceiveCategories } from '../actions/categories'
-import { handleReceivePosts } from '../actions/posts'
 import MenuNav from './MenuNav'
 import { isEmpty } from '../utils/helpers'
 import Dashboard from './Dashboard';
+import SinglePost from './Posts/SinglePost'
 
 class App extends Component {
   componentDidMount () {
     this.props.dispatch(handleReceiveCategories())
-    this.props.dispatch(handleReceivePosts())
   }
 
   render() {
     return (
-      <div>
+      <Router>
         <Fragment>
           {
             this.props.loading === true
@@ -23,24 +23,24 @@ class App extends Component {
             : <MenuNav />
           }
           <Container>
-            {
-              this.props.loadingPosts === true
-              ? null
-              : <Dashboard />
-            }
+            {/* Dashboard com todos os posts */}
+            <Route path='/' exact component={Dashboard} />
+            {/* Dashboard com os posts por categoria */}
+            <Route path='/:category' exact component={Dashboard} />
+            {/* Página com o post detalhado */}
+            <Route path='/:category/:postId' component={SinglePost} />
           </Container>
         </Fragment>
-      </div>
+      </Router>
     );
   }  
 }
 
 
 
-function mapStateToProps({ categories, posts }){
+function mapStateToProps({ categories }) {
   return {
-    loading: isEmpty(categories),  
-    loadingPosts: isEmpty(posts)
+    loading: isEmpty(categories)
   }
 }
 

@@ -4,6 +4,7 @@ import { Image, Menu, Dropdown, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import logo from '../logo.svg';
 import NewPost from './Posts/NewPost'
+import SortPostsDropdown from './SortPostsDropdown'
 
 class MenuNav extends Component {
     render () {
@@ -37,15 +38,9 @@ class MenuNav extends Component {
                             </Dropdown.Menu>
                         </Dropdown>
                     </Menu.Item>
-
-                    <Menu.Item name='register'>
-                        <Dropdown text='Ordenar por'>
-                            <Dropdown.Menu>
-                                <Dropdown.Item text='Relevância' />
-                                <Dropdown.Item text='Mais novo' />
-                                <Dropdown.Item text='Mais velho' />
-                            </Dropdown.Menu>
-                        </Dropdown>
+                    
+                    <Menu.Item>
+                        <SortPostsDropdown />
                     </Menu.Item>
                 </Menu.Menu>
 
@@ -66,7 +61,6 @@ class MenuNav extends Component {
 }
 
 function mapStateToProps ({ categories }, props) {
-    console.log('map props: ', props)
     return {
         categories,
         ...props

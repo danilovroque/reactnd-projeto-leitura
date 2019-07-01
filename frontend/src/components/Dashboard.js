@@ -12,7 +12,7 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { dispatch, category, location: { pathname } } = this.props
+        const { location: { pathname } } = this.props
 
         if (prevProps.location.pathname !== pathname) {
             this.mountComponent()

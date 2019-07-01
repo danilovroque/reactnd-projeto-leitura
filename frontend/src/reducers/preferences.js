@@ -8,6 +8,6 @@ export default function preferences(state = {}, action) {
                 orderby: action.orderBy
             }
         default:
-            state
+            return state
     }
 }

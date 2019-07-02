@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import PostDetail from './Posts/PostDetail'
-import { isEmpty } from '../utils/helpers'
+import { isEmpty, orderPosts } from '../utils/helpers'
 import { handleReceivePosts } from '../actions/posts'
 
 class Dashboard extends Component {
@@ -26,13 +26,17 @@ class Dashboard extends Component {
     }
 
     render() {
-        const { posts, loading } = this.props
+        const { posts, loading, category, orderBy } = this.props
+        let orderedPosts = []
+        if (loading === false) {
+            orderedPosts = orderPosts(posts, category, orderBy)
+        }
         return (
             <div>
                 {
                     loading === true
                     ? null
-                    : posts.map((post) => (
+                    : orderedPosts.map((post) => (
                         <PostDetail id={post.id} key={post.id} />
                     ))
                 }
@@ -42,12 +46,16 @@ class Dashboard extends Component {
     }
 }
 
-function mapStateToProps({ posts }, props) {
+function mapStateToProps({ posts, preferences = {} }, props) {
     const { category } = props.match.params
+    if (preferences.orderBy === undefined || preferences.orderBy === '') {
+        preferences.orderBy = 'score'
+    }
     return {
         ...props,
         category,
         posts,
+        orderBy: preferences.orderBy,
         loading: isEmpty(posts)       
     }
 }

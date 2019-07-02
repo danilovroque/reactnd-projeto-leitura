@@ -5,7 +5,7 @@ export default function preferences(state = {}, action) {
         case SAVE_ORDER_POSTS:
         case GET_ORDER_POSTS:
             return {
-                orderby: action.orderBy
+                orderBy: action.orderBy
             }
         default:
             return state

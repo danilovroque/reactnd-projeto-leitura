@@ -16,21 +16,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Fragment>
           {
             this.props.loading === true
-            ? null
-            : <MenuNav />
-          }
-          <Container>
-            {/* Dashboard com todos os posts */}
-            <Route path='/' exact component={Dashboard} />
-            {/* Dashboard com os posts por categoria */}
-            <Route path='/:category' exact component={Dashboard} />
-            {/* Página com o post detalhado */}
-            <Route path='/:category/:postId' component={SinglePost} />
-          </Container>
-        </Fragment>
+            ?  null 
+            : (
+              <Fragment>
+                <MenuNav />
+              
+                <Container>
+                  {/* Dashboard com todos os posts */}
+                  <Route path='/' exact component={Dashboard} />
+                  {/* Dashboard com os posts por categoria */}
+                  <Route path='/:category' exact component={Dashboard} />
+                  {/* Página com o post detalhado */}
+                  <Route path='/:category/:postId' component={SinglePost} />
+                </Container>
+              </Fragment>
+            )}
       </Router>
     );
   }  

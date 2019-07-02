@@ -12,7 +12,7 @@ class MenuNav extends Component {
         const { categories, location: { pathname } } = this.props
         return (
             <Menu inverted>
-                <Menu.Item as='a' header>
+                <Menu.Item as={Link} to='/' header>
                     <Image
                         size='mini'
                         src={logo}

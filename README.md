@@ -1,22 +1,29 @@
-# Readable API Server
+# Leitura
 
-This is the starter project for the final assessment project for Udacity's Redux course where you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
+> Leitura: uma aplicação que possibilita ao usuário escrever posts e comentar em posts de outros usuários. 2º Projeto do Nanodegree em React, promovido pela Udacity.
 
-This repository includes the code for the backend API Server that you'll use to develop and interact with the front-end portion of the project.
+A aplicação consiste na escrita de posts divididos em três categorias:
+* react
+* redux
+* udacity
 
-## Start Developing
+É possível comentar, editar e/ou apagar os posts e comentários, conforme desejado.
 
-To get started developing right away:
+![leitura](https://repository-images.githubusercontent.com/194765662/df0c8580-9c4f-11e9-96e8-189e60b32628)
 
-* Install and start the API server
-    - `cd api-server`
-    - `npm install`
-    - `node server`
-* In another terminal window, use Create React App to scaffold out the front-end
-    - `create-react-app frontend`
-    - `cd frontend`
-    - `npm start`
+## Instalação
 
-## API Server
+* Clonar o projeto: `git clone https://github.com/danilovroque/reactnd-project-myreads.git`
+* Instale as dependências: `npm install`
+* Inicie a aplicação: `npm start`
 
-Information about the API server and how to use it can be found in its [README file](api-server/README.md).
+# API Server
+
+To install and start the API server, run the following commands in this directory:
+
+* `npm install`
+* `node server`
+
+## License
+
+MIT

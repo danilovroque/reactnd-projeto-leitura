@@ -9,7 +9,7 @@ A aplicação consiste na escrita de posts divididos em três categorias:
 
 É possível comentar, editar e/ou apagar os posts e comentários, conforme desejado.
 
-![leitura]()
+![leitura](https://repository-images.githubusercontent.com/194765662/df0c8580-9c4f-11e9-96e8-189e60b32628)
 
 ## Instalação
 

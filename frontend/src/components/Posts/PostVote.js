@@ -9,13 +9,13 @@ class PostVote extends Component {
         return (
             <Grid.Column width='1' textAlign='center' verticalAlign='middle'>
                 <Grid.Row>
-                    <Icon link size='huge' name='caret up' onClick={() => handleVote(VOTE.UP, post)} />
+                    <Icon link size='huge' name='caret up' color='black' onClick={() => handleVote(VOTE.UP, post)} />
                 </Grid.Row>
                 <Grid.Row style={{ marginLeft: '20px'}}>
-                    <span style={{ fontSize: 20}}>{post.voteScore}</span>
+                    <span style={{ fontSize: 20, color: 'black'}}>{post.voteScore}</span>
                 </Grid.Row>
                 <Grid.Row>
-                    <Icon link size='huge' name='caret down' onClick={() => handleVote(VOTE.DOWN, post)} />
+                    <Icon link size='huge' name='caret down' color='black' onClick={() => handleVote(VOTE.DOWN, post)} />
                 </Grid.Row>
             </Grid.Column>
         )

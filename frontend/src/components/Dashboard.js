@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import PostDetail from './Posts/PostDetail'
 import { isEmpty, orderPosts } from '../utils/helpers'
 import { handleReceivePosts } from '../actions/posts'
@@ -37,7 +37,9 @@ class Dashboard extends Component {
                     loading === true
                     ? null
                     : orderedPosts.map((post) => (
-                        <PostDetail id={post.id} key={post.id} />
+                        <Link key={post.id} to={`${post.category}/${post.id}`}>
+                            <PostDetail id={post.id} />
+                        </Link>
                     ))
                 }
             </div>

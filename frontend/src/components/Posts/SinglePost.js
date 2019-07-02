@@ -7,7 +7,7 @@ import PostDetail from './PostDetail'
 const SinglePost = ({ match }) => {
     return (
         <Container>
-            <PostDetail id={match.params.postId} />
+            <PostDetail id={match.params.postId} showBody={true} />
         </Container>   
     )
 }

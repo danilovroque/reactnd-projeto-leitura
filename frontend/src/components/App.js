@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import { handleReceiveCategories } from '../actions/categories'
 import MenuNav from './MenuNav'
 import { isEmpty } from '../utils/helpers'
-import Dashboard from './Dashboard';
+import Dashboard from './Dashboard'
 import SinglePost from './Posts/SinglePost'
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
       <Router>
           {
             this.props.loading === true
-            ?  null 
+            ?  <h1>FALHA NA COMUNICAÇÃO COM O SERVIDOR</h1> 
             : (
               <Fragment>
                 <MenuNav />

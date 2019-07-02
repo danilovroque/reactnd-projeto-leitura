@@ -46,7 +46,7 @@ class PostInformation extends Component {
                         )}
                     />
 
-                    <PostDeleteModal />            
+                    <PostDeleteModal post={post} />            
                 </span>
             </Grid.Column>
         )

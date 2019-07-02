@@ -8,7 +8,6 @@ import SortPostsDropdown from './SortPostsDropdown'
 
 class MenuNav extends Component {
     render () {
-        console.log('props: ', this.props)
         const { categories, location: { pathname } } = this.props
         return (
             <Menu inverted>

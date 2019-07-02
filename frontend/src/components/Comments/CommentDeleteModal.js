@@ -24,7 +24,7 @@ class CommentDeleteModal extends Component {
                 modalOpen: false,
                 message: false
             })
-        }, 2000);
+        }, 4000);
         
         
     }

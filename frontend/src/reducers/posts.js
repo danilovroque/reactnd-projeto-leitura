@@ -22,7 +22,7 @@ export default function posts (state = {}, action) {
         }
         case DELETE_POST: {
             return [
-                ...state.filter((p) => p.id !== action.post.id)
+                ...state.filter((p) => p.id !== action.postId)
             ]
         }
         case RECEIVE_POST: {

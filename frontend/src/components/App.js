@@ -18,7 +18,7 @@ class App extends Component {
       <Router>
           {
             this.props.loading === true
-            ?  <h1>FALHA NA COMUNICAÇÃO COM O SERVIDOR</h1> 
+            ?  <h1>LOADING</h1> 
             : (
               <Fragment>
                 <MenuNav />

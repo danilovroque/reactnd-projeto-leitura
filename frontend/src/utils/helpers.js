@@ -13,8 +13,6 @@ export function orderPosts (posts, category, orderBy) {
         ? posts.filter((p) => p.category === category)
         : posts
 
-        console.log('orderPosts: ', filteredPosts)
-
     switch(orderBy) {
         case 'score':
             return filteredPosts.sort((a, b) => (b.voteScore - a.voteScore))

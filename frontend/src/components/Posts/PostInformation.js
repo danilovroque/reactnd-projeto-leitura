@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import { formatDate } from '../../utils/helpers'
 import {
     Grid, Header, Button
@@ -17,7 +19,7 @@ class PostInformation extends Component {
         return (
             <Grid.Column>
                 <Header as='h3' id='title' style={{paddingTop: '5%', marginBottom: '0'}}>
-                    {title}
+                    <Link to={`${post.category}/${post.id}`} style={{color: 'black'}}>{title}</Link>
                 </Header>
 
                 <span className='postDetail'>
@@ -27,6 +29,8 @@ class PostInformation extends Component {
                     <span>{category}</span>
                     {' - '}
                     <span>{formatDate(timestamp)}</span>
+                    {' - '}
+                    <span>{post.commentCount} {' comentário(s)'}</span>
                 </span>
 
                 {
@@ -53,4 +57,4 @@ class PostInformation extends Component {
     }
 }
 
-export default PostInformation
+export default connect()(PostInformation)

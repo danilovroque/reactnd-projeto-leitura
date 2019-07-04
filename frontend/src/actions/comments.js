@@ -7,6 +7,7 @@ import {
     voteComment
 } from '../api/api'
 import { generateId } from '../api/helpers'
+import { handleReceivePost } from './posts';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT'
@@ -66,6 +67,7 @@ export function handleAddComment (comment) {
         })
         .then((c) => {
             dispatch(addCommentAction(c))
+            dispatch(handleReceivePost(c.parentId))
         })
     }
 }
@@ -107,6 +109,7 @@ export function handleDeleteComment (commentId) {
         deleteComment(commentId)
             .then((c) => {
                 dispatch(deleteCommentAction(c.id))
+                dispatch(handleReceivePost(c.parentId))
             })
     }
 }

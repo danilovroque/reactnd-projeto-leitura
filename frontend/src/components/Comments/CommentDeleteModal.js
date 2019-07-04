@@ -14,8 +14,6 @@ class CommentDeleteModal extends Component {
 
     handleDelete = (e) => {
         const { dispatch, commentId } = this.props
-
-        dispatch(handleDeleteComment(commentId))     
         
         this.setState({ message: true })
 
@@ -24,9 +22,8 @@ class CommentDeleteModal extends Component {
                 modalOpen: false,
                 message: false
             })
-        }, 4000);
-        
-        
+            dispatch(handleDeleteComment(commentId)) 
+        }, 2000);
     }
 
     render () {

@@ -21,7 +21,6 @@ export default function comments (state = {}, action) {
             ]
         }
         case DELETE_COMMENT: {
-            console.log('reducer: ', action.commentId)
             return [
                 ...state.filter((c) => c.id !== action.commentId)
             ]
